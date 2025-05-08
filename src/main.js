@@ -44,6 +44,7 @@ void (async () => {
   await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream();
   video.attach(localVideo);
   await localVideo.play();
+  console.log("Hello world!!!");
 
   joinButton.onclick = async () => {
     if (roomNameInput.value === '') return;
