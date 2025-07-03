@@ -1,3 +1,15 @@
+/*import {
+  nowInSec,
+  SkyWayAuthToken,
+  SkyWayContext,
+  SkyWayRoom,
+  SkyWayStreamFactory,
+  uuidV4
+} from '@skyway-sdk/room';
+*/
+
+const { nowInSec, SkyWayAuthToken, SkyWayContext, SkyWayRoom, SkyWayStreamFactory, uuidV4 } = skyway_room;
+
 const token = new SkyWayAuthToken({
   jti: uuidV4(),
   iat: nowInSec(),
@@ -35,7 +47,6 @@ void (async () => {
   await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream();
   video.attach(localVideo);
   await localVideo.play();
-  console.log("Hello world!!!");
 
   joinButton.onclick = async () => {
     if (roomNameInput.value === '') return;
