@@ -53,7 +53,7 @@ void (async () => {
 
     const context = await SkyWayContext.Create(token);
     const room = await SkyWayRoom.FindOrCreate(context, {
-      type: 'sfu',
+      type: 'p2p',
       name: roomNameInput.value
     });
     const me = await room.join();
