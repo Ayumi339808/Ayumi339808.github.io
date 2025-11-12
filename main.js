@@ -59,9 +59,17 @@ void (async () => {
     const me = await room.join();
 
     myId.textContent = me.id;
-
+    
+    const localVideoStream = await SkyWayStreamFactory.createCameraVideoStream();
+    const publication = await localMember.publish(localVideoStream);
+ 
     await me.publish(audio);
     await me.publish(video);
+
+    // カメラ映像の配信を一時的に停止する
+    await publication.disable();
+    // カメラ映像の配信を再開する
+    await publication.enable();
 
     const subscribeAndAttach = (publication) => {
       if (publication.publisher.id === me.id) return;
