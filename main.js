@@ -60,9 +60,6 @@ void (async () => {
 
     myId.textContent = me.id;
     
-    const localVideoStream = await SkyWayStreamFactory.createCameraVideoStream();
-    const publication = await localMember.publish(localVideoStream);
- 
     await me.publish(audio);
     await me.publish(video);
 
