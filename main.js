@@ -63,11 +63,6 @@ void (async () => {
     await me.publish(audio);
     await me.publish(video);
 
-    // カメラ映像の配信を一時的に停止する
-    await me.disable(audio);
-    // カメラ映像の配信を再開する
-    await me.enable(audio);
-
     const subscribeAndAttach = (publication) => {
       if (publication.publisher.id === me.id) return;
 
